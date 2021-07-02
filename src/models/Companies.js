@@ -4,6 +4,7 @@ const Companies = mongoose.Schema({
     name: String,
     image: String,
     updatedAt: Date,
+    createdAt: Date,
     status: { type: mongoose.Schema.ObjectId, ref: "Status"},
     recordsQuantity: { type: mongoose.Schema.ObjectId, ref: "Records"}
 })
