@@ -1,9 +1,30 @@
-const Companies = require("../models/Companies");
+const company = require("../models/Company.model");
 
 class CompaniesController {
   async getAllCompanies(req, res) {
     try {
-      const companies = await Companies.find({});
+      const companies = await company.aggregate([
+        {
+          $lookup: {
+            from: "records",
+            as: "records",
+            let: { companyId: "$_id" },
+            pipeline: [
+              {
+                $match: { $expr: { $eq: ["$companyId", "$$companyId"] } },
+              },
+            ],
+          },
+        },
+        {
+          $project: {
+            _id: 1,
+            name: 1,
+            image: 1,
+            records: 1,
+          },
+        },
+      ]);
       res.json(companies);
     } catch (e) {
       res.json(e.message);
@@ -11,7 +32,7 @@ class CompaniesController {
   }
   async getCompanyById(req, res) {
     try {
-      const companies = await Companies.findById(req.params.id);
+      const companies = await company.findById(req.params.id);
       res.json(companies);
     } catch (e) {
       res.json(e.message);
@@ -19,9 +40,11 @@ class CompaniesController {
   }
   async addNewCompany(req, res) {
     try {
-      const companies = new Companies({
+      const companies = new company({
         name: req.body.name,
-        image: req.body.image
+        image: req.body.image,
+        updatedAt: Date.now(),
+        createdAt: Date.now(),
       });
       await companies.save();
       res.json(companies);
@@ -34,7 +57,7 @@ class CompaniesController {
       const id = req.params.id;
       const { name, image } = req.body;
       const updatedAt = Date.now();
-      const companies = await Companies.findByIdAndUpdate(
+      const companies = await company.findByIdAndUpdate(
         id,
         { name, image, updatedAt },
         { new: true }
@@ -46,7 +69,7 @@ class CompaniesController {
   }
   async removeCompanyById(req, res) {
     try {
-      const companies = await Companies.findByIdAndDelete(req.params.id);
+      const companies = await company.findByIdAndDelete(req.params.id);
       res.json(companies);
     } catch (e) {
       res.json(e.message);
@@ -54,4 +77,4 @@ class CompaniesController {
   }
 }
 
-module.exports = new CompaniesController;
+module.exports = new CompaniesController();
