@@ -11,10 +11,11 @@ class RecordsController {
   }
   async updateRecord(req, res) {
     try {
-      const { text } = req.body;
+        const id = req.params.id
+      const { text, companyId } = req.body;
       const records = await Records.findByIdAndUpdate(
         id,
-        { text },
+        { text, companyId },
         { new: true }
       );
       res.json(records)
@@ -24,9 +25,10 @@ class RecordsController {
   }
   async addRecord(req,res) {
       try {
-          const { text } = req.body
+          const { text, companyId } = req.body
           const records = new Records({
-              text: text,
+              text,
+              companyId,
               quantity: Records.length
           })
           await records.save()
@@ -36,3 +38,5 @@ class RecordsController {
       }
   }
 }
+
+module.exports = new RecordsController

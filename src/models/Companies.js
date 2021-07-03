@@ -2,11 +2,7 @@ const mongoose = require("mongoose")
 
 const Companies = mongoose.Schema({
     name: String,
-    image: String,
-    updatedAt: Date,
-    createdAt: Date,
-    status: { type: mongoose.Schema.ObjectId, ref: "Status"},
-    recordsQuantity: { type: mongoose.Schema.ObjectId, ref: "Records"}
+    image: String
 })
 
 module.exports = mongoose.model("Companies", Companies)

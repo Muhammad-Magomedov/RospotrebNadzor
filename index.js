@@ -2,12 +2,14 @@ const mongoose = require("mongoose")
 const express = require("express")
 const cors = require("cors")
 const { URL, PORT } = require("./src/config/config")
+const router = require("./src/routes/index")
 
 const app = express()
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cors())
+app.use(router)
 
 const start = async () => {
     try {
