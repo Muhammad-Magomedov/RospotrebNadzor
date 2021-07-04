@@ -17,13 +17,27 @@ class CompaniesController {
           },
         },
         {
+          $lookup: {
+            from: "records",
+            as: "lastRecord",
+            let: { companyId: "$_id" },
+            pipeline: [
+              { $match: { $expr: { $eq: ["$companyId", "$$companyId"] } } },
+              { $sort: {createdAt: -1}},
+              {$limit: 1}
+            ],
+          },
+        },
+        {
           $project: {
             _id: 1,
             name: 1,
             image: 1,
             records: 1,
+            lastRecord: 1,
           },
         },
+        { $unwind: { path: '$lastNote', preserveNullAndEmptyArrays: true} },
       ]);
       res.json(companies);
     } catch (e) {

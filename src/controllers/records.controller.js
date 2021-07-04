@@ -13,9 +13,10 @@ class RecordsController {
     try {
       const id = req.params._id;
       const { text, status, companyId } = req.body;
+      const updatedAt = Date.now()
       const records = await record.findByIdAndUpdate(
         id,
-        { text, status, companyId },
+        { text, status, updatedAt, companyId },
         { new: true }
       );
       res.json(records);
@@ -26,10 +27,12 @@ class RecordsController {
   async addRecord(req, res) {
     try {
       const { text, status } = req.body;
+      const updatedAt = Date.now()
       const companyId = req.params.id;
       const records = new record({
         text,
         status,
+        updatedAt,
         companyId,
       });
       await records.save();
