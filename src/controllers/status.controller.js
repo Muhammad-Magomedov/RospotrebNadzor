@@ -11,9 +11,10 @@ class StatusController {
   }
   async addNewColorForStatus(req, res) {
     try {
+      const {color, text} = req.body
       const Status = new status({
-        color: req.body.color,
-        text: req.body.text,
+        color: color,
+        text: text
       });
       await status.save();
       res.json(status);

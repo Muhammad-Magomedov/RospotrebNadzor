@@ -54,9 +54,10 @@ class CompaniesController {
   }
   async addNewCompany(req, res) {
     try {
+      const {name, image} = req.body
       const companies = new company({
-        name: req.body.name,
-        image: req.body.image,
+        name: name,
+        image: image,
         updatedAt: Date.now(),
         createdAt: Date.now(),
       });
