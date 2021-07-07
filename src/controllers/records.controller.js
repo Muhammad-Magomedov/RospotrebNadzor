@@ -11,12 +11,12 @@ class RecordsController {
   }
   async updateRecord(req, res) {
     try {
-      const id = req.params._id;
-      const { text, status, companyId } = req.body;
+      const id = req.params.id;
+      const { text, status } = req.body;
       const updatedAt = Date.now()
       const records = await record.findByIdAndUpdate(
         id,
-        { text, status, updatedAt, companyId },
+        { text, status, updatedAt },
         { new: true }
       );
       res.json(records);
