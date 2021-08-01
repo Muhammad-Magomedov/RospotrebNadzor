@@ -4,11 +4,13 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { URL, PORT } = require("./src/config/config");
 const router = require("./src/routes/index.route");
+const fileUpload = require("express-fileupload")
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(fileUpload())
 app.use(cors());
 app.use(morgan("tiny"));
 app.use(router);

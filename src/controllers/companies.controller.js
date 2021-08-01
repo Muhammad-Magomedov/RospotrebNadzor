@@ -1,4 +1,5 @@
 const company = require("../models/Company.model");
+const path = require("path");
 
 class CompaniesController {
   async getAllCompanies(req, res) {
@@ -54,10 +55,12 @@ class CompaniesController {
   }
   async addNewCompany(req, res) {
     try {
-      const {name, image} = req.body
+      req.files.file.mv((path.join(__dirname, `../../client/public/uploads/${req.files.file.name}`)))
+      const image = req.files.file.name
+      const {name} = req.body
       const companies = new company({
-        name: name,
-        image: image,
+        name,
+        image,
         updatedAt: Date.now(),
         createdAt: Date.now(),
       });
@@ -67,6 +70,7 @@ class CompaniesController {
       res.json(e.message);
     }
   }
+
   async updateCompany(req, res) {
     try {
       const id = req.params.id;
@@ -93,3 +97,19 @@ class CompaniesController {
 }
 
 module.exports = new CompaniesController();
+
+
+
+
+
+//   // console.log
+//   req.files.file.mv((path.join(__dirname, `../../client/public/uploads/${req.files.file.name}`)), (err) => {
+// if (err) {
+// console.log("error")
+// } else {
+// res.json("file uploaded")
+// }
+// })
+// } catch (e) {
+//
+// }

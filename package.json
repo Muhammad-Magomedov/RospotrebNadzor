@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node index",
-    "start": "nodemon index"
+    "server": "nodemon index",
+    "client": "cd ./client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node index"
   },
   "eslintConfig": {
     "extends": [
@@ -17,8 +19,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "concurrently": "^6.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-fileupload": "^1.2.1",
     "mongoose": "^5.13.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.9",
