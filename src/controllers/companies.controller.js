@@ -55,12 +55,10 @@ class CompaniesController {
   }
   async addNewCompany(req, res) {
     try {
-      req.files.file.mv((path.join(__dirname, `../../client/public/uploads/${req.files.file.name}`)))
-      const image = req.files.file.name
-      const {name} = req.body
+      const {name, image} = req.body
       const companies = new company({
         name,
-        image,
+        image: image,
         updatedAt: Date.now(),
         createdAt: Date.now(),
       });
@@ -68,6 +66,31 @@ class CompaniesController {
       res.json(companies);
     } catch (e) {
       res.json(e.message);
+    }
+  }
+
+  async addImage(req, res) {
+    const file = req.files.file
+    const fileName = file.name
+    const url = path.resolve(__dirname, "../public/uploads/img/" + fileName)
+    const urlDB = "/uploads/img/" + fileName
+    try {
+      file.mv(url, async (err) => {
+        if(err) {
+          console.log(err)
+        } else {
+          const deb = new company({
+            image: urlDB,
+            name: req.body.name
+          })
+
+          await deb.save()
+          res.json(deb)
+        }
+      })
+
+    } catch (e) {
+      res.json(e.message)
     }
   }
 

@@ -28,19 +28,19 @@ export default function companyReducer(state = initialState, action) {
         ...state,
         items: [...state.items, action.payload],
       };
-    case "avatar/create/pending": {
+    case "image/create/pending": {
       return {
         ...state,
         loading: true
       }
     }
-    case "avatar/create/fulfilled": {
+    case "image/create/fulfilled": {
       return {
         ...state,
         loading: false,
         items: {
           ...state.items,
-          avatar: action.payload
+          image: action.payload
         }
       }
     }
@@ -68,16 +68,42 @@ export const deleteCompany = (companyId) => {
 };
 
 export const postCompany = (data) => {
-  return async (dispatch) => {
-    await fetch("http://localhost:5000/company", {
+  return async (dispatch, getState) => {
+    const state = getState()
+    const response = await fetch("http://localhost:5000/company", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        name: data.name,
+        image: state.image.file
+      })
     });
-    dispatch({ type: "company/post/fulfilled", payload: data });
+    const json = await response.json()
+    if (json.error) {
+      dispatch({
+        type: "company/post/rejected",
+        error: json.error
+      })
+    } else {
+      dispatch({ type: "company/post/fulfilled", payload: json });
+    }
   };
 };
+
+export const addImage = (data) => {
+  return async (dispatch) => {
+    dispatch({type: "image/create/pending"})
+    const formData = new FormData()
+    formData.append('file', data.file)
+    const response = await fetch("http://localhost:5000/upload", {
+      method: "POST",
+      body: formData
+    })
+    const json = await response.json()
+    dispatch({ type: "company/post/fulfilled", payload: json });
+  }
+}
 
 
