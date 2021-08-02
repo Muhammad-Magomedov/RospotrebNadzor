@@ -31,11 +31,11 @@
 //     dispatch({type: "image/create/pending"})
 //     const formData = new FormData()
 //     formData.append('file', file)
-//     const response = await fetch("http://localhost:5000/upload", {
+//     const response = await fetch("http://localhost:5000/company", {
 //       method: "POST",
 //       body: formData
 //     })
 //     const json = await response.json()
-//     dispatch({type: "image/create/fulfilled", payload: json.image})
+//     dispatch({ type: "image/create/fulfilled", payload: json.image });
 //   }
 // }

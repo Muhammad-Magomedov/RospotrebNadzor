@@ -3,6 +3,7 @@ const initialState = {
   loading: false,
   deleting: false,
   updating: false,
+  avatar: null
 };
 
 export default function companyReducer(state = initialState, action) {
@@ -38,10 +39,7 @@ export default function companyReducer(state = initialState, action) {
       return {
         ...state,
         loading: false,
-        items: {
-          ...state.items,
-          image: action.payload
-        }
+        avatar: action.payload
       }
     }
     default:
@@ -70,40 +68,37 @@ export const deleteCompany = (companyId) => {
 export const postCompany = (data) => {
   return async (dispatch, getState) => {
     const state = getState()
-    const response = await fetch("http://localhost:5000/company", {
+    dispatch({type: "company/create/pending"})
+    const response = await fetch("https://localhost:5000/company", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        name: data.name,
-        image: state.image.file
+        name: data,
+        image: state.company.avatar
       })
-    });
+    })
     const json = await response.json()
-    if (json.error) {
-      dispatch({
-        type: "company/post/rejected",
-        error: json.error
-      })
-    } else {
-      dispatch({ type: "company/post/fulfilled", payload: json });
-    }
-  };
+    dispatch({type: "company/create/fulfilled", payload: json})
+  }
 };
 
-export const addImage = (data) => {
+
+export const downloadImage = (file) => {
   return async (dispatch) => {
     dispatch({type: "image/create/pending"})
     const formData = new FormData()
-    formData.append('file', data.file)
+    formData.append('file', file)
     const response = await fetch("http://localhost:5000/upload", {
       method: "POST",
       body: formData
     })
     const json = await response.json()
-    dispatch({ type: "company/post/fulfilled", payload: json });
+    dispatch({ type: "image/create/fulfilled", payload: json.image });
   }
 }
+
+
 
 

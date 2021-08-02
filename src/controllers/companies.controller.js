@@ -79,13 +79,15 @@ class CompaniesController {
         if(err) {
           console.log(err)
         } else {
-          const deb = new company({
-            image: urlDB,
-            name: req.body.name
-          })
+          const deb = await company.findById(req.params.id)
+
+          deb.image = urlDB
 
           await deb.save()
-          res.json(deb)
+          res.json({
+            success: "Ok",
+            image: urlDB
+          })
         }
       })
 

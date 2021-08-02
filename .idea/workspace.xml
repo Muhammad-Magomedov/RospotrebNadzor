@@ -2,35 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e2e4058f-e5da-4e6c-a7dd-91fa78df533b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/redux/features/images.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/public/uploads/9646a9f2abdbc4d73c062dae07d93716.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Admin/AddInput.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Admin/Admin.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/App.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Company/Company.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Company/CompanyPreloader.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Company/Tbody.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Company/Thead.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Header.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/Records/RecordsRedact.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/components/redactWindow/RedactWindow.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/index.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/redux/configureStore.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/redux/features/company.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/redux/features/record.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/clienta/src/redux/features/status.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Admin/AddInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Admin/AddInput.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/configureStore.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/configureStore.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/features/company.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/features/company.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/redux/features/images.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/redux/features/images.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/companies.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/companies.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/companies.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/companies.route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/uploads/img/5ab864d4-faa0-4568-86d3-ede48d753ed2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/public/uploads/img/IMG_7343-min.JPG" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +20,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1wA9f4X7H2iI8ttWBrQOrNmiagM" />
   <component name="ProjectViewState">
@@ -49,11 +38,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/nodejs/node.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="C:\Users\Admin\Desktop\RospotrebNadzor\node_modules\prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -65,6 +57,9 @@
       <option name="presentableId" value="Default" />
       <updated>1627890630335</updated>
       <workItem from="1627890634180" duration="10005000" />
+      <workItem from="1627901532451" duration="923000" />
+      <workItem from="1627902966539" duration="1839000" />
+      <workItem from="1627905342239" duration="5152000" />
     </task>
     <servers />
   </component>
@@ -81,5 +76,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

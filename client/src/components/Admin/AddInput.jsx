@@ -1,9 +1,10 @@
 import React, {createRef, useEffect, useRef, useState} from 'react';
 import {Box, Button, TextField} from "@material-ui/core";
 import {useDispatch} from "react-redux";
-import { addImage, postCompany } from "../../redux/features/company";
+import { downloadImage, postCompany } from "../../redux/features/company";
 import { MdCloudUpload } from "react-icons/md";
 import axios from "axios"
+import { addImage } from '../../redux/features/images';
 
 
 function AddInput(props) {
@@ -22,12 +23,12 @@ function AddInput(props) {
         setText(e.target.value)
     }
     const handleFile = (e) => {
+        e.preventDefault()
         const file = e.target.files[0]
-        dispatch(addImage(file))
+        dispatch(downloadImage(file))
     }
     const addCompany = async (e) => {
-        dispatch(postCompany({ name, file }))
-        console.log(file)
+        dispatch(postCompany({ name }))
     }
 
 

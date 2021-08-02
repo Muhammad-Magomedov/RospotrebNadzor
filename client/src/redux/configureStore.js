@@ -15,7 +15,8 @@ export const store = createStore(
   combineReducers({
     company: companyReducer,
     record: recordReducer,
-    status: statusReducer
+    status: statusReducer,
+    //image: imageReducer
   }),
   applyMiddleware(thunk, logger)
 )
